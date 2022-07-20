@@ -1,0 +1,4 @@
+<input type="text" [(ngModel)]="searchValue" value="{{searchValue}}">
+<button (click)="searchRepos()">Search</button>
+<app-table *ngIf="!isLoading ; else spinner" [dataSource]="dataSource ?? ''"></app-table>
+<ng-template #spinner>Loading Repos....</ng-template>

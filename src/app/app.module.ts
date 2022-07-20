@@ -4,15 +4,32 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ViewModule } from './View/view.module';
+import { NavbarComponent } from './Components/navbar/navbar.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ViewModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatTableModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
