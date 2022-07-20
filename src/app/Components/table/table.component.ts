@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { MatSort } from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
@@ -13,8 +14,9 @@ export class TableComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  displayedColumns: string[] = ['stargazers_count', 'name', 'ssh_url', 'avatar_url'];
+  displayedColumns: string[] = ['stargazers_count', 'name', 'created_at', 'avatar_url'];
  @Input() dataSource = new MatTableDataSource();
+ @Input() isLoading = false;
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

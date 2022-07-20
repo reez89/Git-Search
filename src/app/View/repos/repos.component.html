@@ -1,4 +1,5 @@
 <input type="text" [(ngModel)]="searchValue" value="{{searchValue}}">
+<input type="number" [(ngModel)]="starsValue" value="{{starsValue != undefined ? starsValue : 0}">
+<input type="text" [(ngModel)]="language" value="{{language != undefined ? language : ''}}">
 <button (click)="searchRepos()">Search</button>
-<app-table *ngIf="!isLoading ; else spinner" [dataSource]="dataSource ?? ''"></app-table>
-<ng-template #spinner>Loading Repos....</ng-template>
+<app-table [isLoading]="isLoading" [dataSource]="dataSource"></app-table>

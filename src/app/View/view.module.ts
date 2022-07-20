@@ -12,7 +12,7 @@ import { ReposModule } from './repos/repos.module';
     CommonModule,
     ViewRoutingModule,
     ReposModule,
-    CommitModule
+    CommitModule,
   ]
 })
 export class ViewModule { }

@@ -8,6 +8,7 @@ import {MatInputModule} from '@angular/material/input';
 import { SearchService } from 'src/app/search.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { FormsModule } from '@angular/forms';
     MatTableModule,
     MatInputModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatProgressSpinnerModule
   ],
   exports: [ReposComponent],
   providers: [SearchService]

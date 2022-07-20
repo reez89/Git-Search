@@ -14,6 +14,8 @@ export class ReposComponent {
 
   ELEMENT_DATA: Item[] = [];
   searchValue: string = '';
+  starsValue?: number;
+  language?:string; 
   dataSource: any;
   isLoading : boolean = false;
 
@@ -22,7 +24,7 @@ export class ReposComponent {
 
   searchRepos() {
     this.isLoading = true;
-    this.s.getRepos(this.searchValue).subscribe((item: ReposInterface) => {
+    this.s.getRepos(this.searchValue, this.starsValue, this.language).subscribe((item: ReposInterface) => {
       this.ELEMENT_DATA = item.items;
       this.dataSource = new MatTableDataSource(this.ELEMENT_DATA)
       this.isLoading = false ;
