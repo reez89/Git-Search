@@ -10,8 +10,8 @@
         - avatar of the owner // ok
         - repo creation date // ok
         - When clicking the table row, the /commits page should open for corresponding repo // ok
-        - In /commits, provide a table that allows you to search for commits of selected repository using Github API
+        - In /commits, provide a table that allows you to search for commits of selected repository using Github API // ok
     ## Visualize the rows:
-        - commit author
-        - url
-        - commit message
+        - commit author // ok
+        - url // ok
+        - commit message // ok

@@ -4,7 +4,7 @@ import { ReposComponent } from './repos.component';
 import { TableComponent } from 'src/app/Components/table/table.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { SearchService } from '../../services/search.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';

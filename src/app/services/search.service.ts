@@ -1,6 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, throwError } from 'rxjs';
+import { CommmitResponse } from '../Interfaces/commit-response.interface';
 import { ReposInterface } from '../Interfaces/repos-response.interface';
 import { SingleRepoResponse } from '../Interfaces/single-repo-response.interface';
 
@@ -42,8 +43,12 @@ export class SearchService {
     )
   }
 
-  public searchCommits(){
-
+  public searchCommits(repoOwner: string, repoName: string): Observable<CommmitResponse[]> {
+    let url = `https://api.github.com/repos/${repoOwner}/${repoName}/commits`
+    return this.http.get<CommmitResponse[]>(url).pipe(
+      map((response: any) => response),
+      catchError(this.handleError)
+    )
   }
 
 
