@@ -1,0 +1,25 @@
+.card {
+    max-width: 400px;
+}
+
+.stars-count {
+    display: flex;
+    align-items: center;
+
+    p {
+        margin: 0;
+        padding-left: 10px;
+
+        mat-card-subtitle {
+            margin: 0;
+        }
+    }
+}
+.descrption{
+    font-style: italic;
+}
+img {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}

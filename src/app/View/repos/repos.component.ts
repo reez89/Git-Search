@@ -1,6 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { SearchService } from 'src/app/search.service';
+import { Router } from '@angular/router';
+import { SearchService } from '../../services/search.service';
 import { Item, ReposInterface } from '../../Interfaces/repos-response.interface'
 
 
@@ -12,23 +13,29 @@ import { Item, ReposInterface } from '../../Interfaces/repos-response.interface'
 })
 export class ReposComponent {
 
-  ELEMENT_DATA: Item[] = [];
+  elementData: Item[] = [];
   searchValue: string = '';
   starsValue?: number;
-  language?:string; 
+  language?: string;
   dataSource: any;
-  isLoading : boolean = false;
+  isLoading: boolean = false;
 
 
-  constructor(public s: SearchService) { }
+  constructor(public s: SearchService, private router: Router) { }
 
   searchRepos() {
     this.isLoading = true;
     this.s.getRepos(this.searchValue, this.starsValue, this.language).subscribe((item: ReposInterface) => {
-      this.ELEMENT_DATA = item.items;
-      this.dataSource = new MatTableDataSource(this.ELEMENT_DATA)
-      this.isLoading = false ;
+      this.elementData = item.items;
+      this.dataSource = new MatTableDataSource(this.elementData)
+      this.isLoading = false;
     });
+  }
+
+  goToCommit(e : any) {
+    this.s.goToRepo(e.owner.login, e.name).subscribe(item =>
+        this.router.navigate([`commits/${item.owner.login}/${item.name}`])
+      )
   }
 
 }

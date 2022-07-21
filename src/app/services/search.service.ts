@@ -1,7 +1,8 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, throwError } from 'rxjs';
-import { ReposInterface } from './Interfaces/repos-response.interface';
+import { ReposInterface } from '../Interfaces/repos-response.interface';
+import { SingleRepoResponse } from '../Interfaces/single-repo-response.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class SearchService {
   constructor(private http: HttpClient) { }
 
   public getRepos(reposName: string, stars?: number, language?: string): Observable<ReposInterface> {
-    let url = ''
+    let url = '';
     if (reposName && stars && language) {
       url = `https://api.github.com/search/repositories?q=${reposName}+stars:>=${stars}+language:${language}`
     } else if (!stars && language) {
@@ -28,6 +29,21 @@ export class SearchService {
         }),
         catchError(this.handleError)
       )
+  }
+
+
+  public goToRepo(repoOwner: string, repoName: string): Observable<SingleRepoResponse> {
+    let url = `https://api.github.com/repos/${repoOwner}/${repoName}`;
+    return this.http.get<SingleRepoResponse>(url).pipe(
+      map((response: any) => {
+        return response
+      }),
+      catchError(this.handleError)
+    )
+  }
+
+  public searchCommits(){
+
   }
 
 

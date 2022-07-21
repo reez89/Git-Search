@@ -1,5 +1,9 @@
-<input type="text" [(ngModel)]="searchValue" value="{{searchValue}}">
-<input type="number" [(ngModel)]="starsValue" value="{{starsValue != undefined ? starsValue : 0}">
-<input type="text" [(ngModel)]="language" value="{{language != undefined ? language : ''}}">
-<button (click)="searchRepos()">Search</button>
-<app-table [isLoading]="isLoading" [dataSource]="dataSource"></app-table>
+<mat-label>Repos's Name</mat-label>
+<input matInput type="text" [(ngModel)]="searchValue" value="{{searchValue}}">
+<mat-label>Repos's Stars</mat-label>
+<input matInput type="number" [(ngModel)]="starsValue" value="{{starsValue}">
+<mat-label>Repos's Language</mat-label>
+<input matInput type="text" [(ngModel)]="language" value="{{language}}">
+<button mat-raised-button color="primary" (click)="searchRepos()">Search</button>
+<app-table 
+    [isLoading]="isLoading" [dataSource]="dataSource" (repoEvent)="goToCommit($event)" ></app-table>

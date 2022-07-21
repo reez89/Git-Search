@@ -1,6 +1,5 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { MatSort } from '@angular/material/sort';
-import {MatTableDataSource} from '@angular/material/table';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-table',
@@ -15,8 +14,13 @@ export class TableComponent implements OnInit {
   }
 
   displayedColumns: string[] = ['stargazers_count', 'name', 'created_at', 'avatar_url'];
- @Input() dataSource = new MatTableDataSource();
- @Input() isLoading = false;
+  @Input() dataSource = new MatTableDataSource();
+  @Input() isLoading = false;
+  @Output() repoEvent = new EventEmitter();
+
+  goToCommits(e: Event) {
+    this.repoEvent.emit(e)
+  }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

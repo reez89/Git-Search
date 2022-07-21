@@ -10,7 +10,7 @@ const routes: Routes = [
     component: ReposComponent
   },
   {
-    path: 'commits' , 
+    path: 'commits/:author/:repository' , 
     component: CommitComponent
   },
 ];

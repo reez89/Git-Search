@@ -1,1 +1,20 @@
-<p>commit works!</p>
+<mat-card class="card">
+    <mat-card-header>
+        <div mat-card-avatar class="owner-avatar"> 
+            <img src="{{repository?.owner?.avatar_url}}" alt="Photo of the owner">
+        </div>
+        <mat-card-title>{{repository?.name}}</mat-card-title>
+        <mat-card-subtitle>{{repository?.full_name}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <p [ngClass]="{'descrption' : repository?.description != null }">
+            {{repository?.description != null ? repository?.description :"There's no description"}}
+        </p>
+        <div class="stars-count">
+            <mat-icon>star</mat-icon>
+            <p>
+                <mat-card-subtitle>{{repository?.stargazers_count}}</mat-card-subtitle>
+            </p>
+        </div>
+    </mat-card-content>
+</mat-card>
