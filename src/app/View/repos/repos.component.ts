@@ -7,7 +7,7 @@ import { Item, ReposInterface } from '../../Interfaces/repos-response.interface'
 
 
 @Component({
-  selector: 'app-routes',
+  selector: 'app-repos',
   templateUrl: './repos.component.html',
   styleUrls: ['./repos.component.scss']
 })

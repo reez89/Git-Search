@@ -5,9 +5,7 @@ import { CommmitResponse } from '../Interfaces/commit-response.interface';
 import { ReposInterface } from '../Interfaces/repos-response.interface';
 import { SingleRepoResponse } from '../Interfaces/single-repo-response.interface';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class SearchService {
   constructor(private http: HttpClient) { }
 
@@ -31,7 +29,6 @@ export class SearchService {
         catchError(this.handleError)
       )
   }
-
 
   public goToRepo(repoOwner: string, repoName: string): Observable<SingleRepoResponse> {
     let url = `https://api.github.com/repos/${repoOwner}/${repoName}`;

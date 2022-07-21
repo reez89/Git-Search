@@ -1,12 +1,4 @@
-<mat-toolbar color="primary">
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-        <a [routerLink]="['']" routerLinkActive="router-link-active" >Git Search</a>
-    </button>
-    <span class="example-spacer"></span>
-    <button mat-icon-button class="repos" aria-label="Example icon-button with heart icon">
-        <a [routerLink]="['/repos']" routerLinkActive="router-link-active" >Repos</a>
-    </button>
-    <button mat-icon-button class="commit" aria-label="Example icon-button with share icon">
-        <a [routerLink]="['/commits']" routerLinkActive="router-link-active" >Commit</a>
-    </button>
+<mat-toolbar color="primary" class="toolbar">
+    <a [routerLink]="['']" routerLinkActive="router-link-active">Git Search</a>
+    <a [routerLink]="['/repos']">Repositories</a>
 </mat-toolbar>

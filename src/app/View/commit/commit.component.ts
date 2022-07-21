@@ -35,14 +35,8 @@ export class CommitComponent implements OnInit {
     this.s.searchCommits(this.author, this.repoName).subscribe((item : any) => {
       item.forEach((items : any) => this.commits.push(items.commit) )
       this.dataSource = new MatTableDataSource(this.commits)
-      console.log(this.commits)
       this.isLoading = false;
     })
-  }
-
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
 }

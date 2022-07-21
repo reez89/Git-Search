@@ -10,10 +10,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonModule } from '@angular/material/button';
+import { HomeComponent } from '../home/home.component';
 
 
 @NgModule({
-  declarations: [ReposComponent, TableComponent],
+  declarations: [ReposComponent, TableComponent, HomeComponent],
   imports: [
     CommonModule,
     MatFormFieldModule,

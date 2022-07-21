@@ -15,9 +15,11 @@
         }
     }
 }
-.descrption{
+
+.descrption {
     font-style: italic;
 }
+
 img {
     width: 40px;
     height: 40px;
@@ -26,31 +28,37 @@ img {
 
 table {
     width: 100%;
-    td{
-        height: 50px;
+    tr {
+        td {
+            height: 50px;
+            width: 17%;
+            word-wrap: break-word;
+        }
     }
-  }
-  
-  .mat-form-field {
+}
+
+.mat-form-field {
     font-size: 14px;
     width: 50%;
 
-  }
-.avatar{
+}
+
+.avatar {
     height: 100%;
     padding: 5px 0;
-    display : flex;
-    align-items : center;
+    display: flex;
+    align-items: center;
 }
-img{
+
+img {
     width: 40px;
     height: 40px;
     border-radius: 100%;
 }
 
 
-.loading-spinner{
+.loading-spinner {
     display: flex;
-    align-items : center;
-    justify-content : center;
+    align-items: center;
+    justify-content: center;
 }
