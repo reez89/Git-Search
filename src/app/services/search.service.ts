@@ -15,11 +15,12 @@ export class SearchService {
       url = `https://api.github.com/search/repositories?q=${reposName}+stars:>=${stars}+language:${language}`
     } else if (!stars && language) {
       url = `https://api.github.com/search/repositories?q=${reposName}+language:${language}`
-    }
-    else if (!language && stars) {
+    } else if (!language && stars) {
       url = `https://api.github.com/search/repositories?q=${reposName}+stars:>=${stars}`
     } else if (!(stars && language)) {
       url = `https://api.github.com/search/repositories?q=${reposName}`
+    } else if (language && stars && !reposName) {
+      url = `https://api.github.com/search/repositories?q=stars:>=${stars}+language:${language}`
     }
     return this.http.get<ReposInterface>(url)
       .pipe(
