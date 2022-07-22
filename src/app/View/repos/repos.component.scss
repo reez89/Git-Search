@@ -1,0 +1,14 @@
+.container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.search-box{
+    display: flex;
+    width: 500px;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
