@@ -1,5 +1,5 @@
 import { typeWithParameters } from '@angular/compiler/src/render3/util';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs';
@@ -10,11 +10,11 @@ import { SearchService } from '../../services/search.service';
 @Component({
   selector: 'app-commit',
   templateUrl: './commit.component.html',
-  styleUrls: ['./commit.component.scss']
+  styleUrls: ['./commit.component.scss'],
 })
 export class CommitComponent implements OnInit {
 
-  repository!: SingleRepoResponse ;
+  repository!: SingleRepoResponse;
   commits: Commit[] = [];
   author!: string;
   repoName!: string;
@@ -27,13 +27,13 @@ export class CommitComponent implements OnInit {
   ngOnInit(): void {
     this.author = this.activatedRoute.snapshot.params['author'];
     this.repoName = this.activatedRoute.snapshot.params['repository'];
-    this.s.goToRepo(this.author, this.repoName).subscribe( item => this.repository = item)
+    this.s.goToRepo(this.author, this.repoName).subscribe(item => this.repository = item)
   }
 
-  searchForCommits(){
+  searchForCommits() {
     this.isLoading = true;
-    this.s.searchCommits(this.author, this.repoName).subscribe((item : any) => {
-      item.forEach((items : any) => this.commits.push(items.commit) )
+    this.s.searchCommits(this.author, this.repoName).subscribe((item: any) => {
+      item.forEach((items: any) => this.commits.push(items.commit))
       this.dataSource = new MatTableDataSource(this.commits)
       this.isLoading = false;
     })

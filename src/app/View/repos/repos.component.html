@@ -1,4 +1,4 @@
-<div class="container">
+<app-wrapper>
     <div class="search-box">
         <mat-form-field appearance="fill">
             <mat-label>Repo's Name</mat-label>
@@ -14,5 +14,5 @@
         </mat-form-field>
         <button mat-raised-button color="primary" (click)="searchRepos()">Search</button>
     </div>
-</div>
+</app-wrapper>
 <app-table [isLoading]="isLoading" [dataSource]="dataSource" (repoEvent)="goToCommit($event)"></app-table>

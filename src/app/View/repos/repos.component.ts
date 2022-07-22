@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { SearchService } from '../../services/search.service';
@@ -9,7 +9,7 @@ import { Item, ReposInterface } from '../../Interfaces/repos-response.interface'
 @Component({
   selector: 'app-repos',
   templateUrl: './repos.component.html',
-  styleUrls: ['./repos.component.scss']
+  styleUrls: ['./repos.component.scss'],
 })
 export class ReposComponent {
 
@@ -21,9 +21,9 @@ export class ReposComponent {
   isLoading: boolean = false;
 
 
-  constructor(public s: SearchService, private router: Router) { }
+  constructor(public s: SearchService, private router: Router) {}
 
-  searchRepos() {
+  public searchRepos() {
     this.isLoading = true;
     this.s.getRepos(this.searchValue, this.starsValue, this.language).subscribe((item: ReposInterface) => {
       this.elementData = item.items;
@@ -32,10 +32,11 @@ export class ReposComponent {
     });
   }
 
-  goToCommit(e : any) {
-    this.s.goToRepo(e.owner.login, e.name).subscribe(item =>
-        this.router.navigate([`commits/${item.owner.login}/${item.name}`])
-      )
+  public goToCommit(e: any) {
+    this.s.goToRepo(e.owner.login, e.name).subscribe(item => {
+      this.router.navigate([`commits/${item.owner.login}/${item.name}`])
+    }
+    )
   }
 
 }
