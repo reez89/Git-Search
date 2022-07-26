@@ -21,11 +21,11 @@ export class ReposComponent {
   isLoading: boolean = false;
 
 
-  constructor(public s: SearchService, private router: Router) {}
+  constructor(public searchService: SearchService, private router: Router) {}
 
   public searchRepos() {
     this.isLoading = true;
-    this.s.getRepos(this.searchValue, this.starsValue, this.language).subscribe((item: ReposInterface) => {
+    this.searchService.getRepos(this.searchValue, this.starsValue, this.language).subscribe((item: ReposInterface) => {
       this.elementData = item.items;
       this.dataSource = new MatTableDataSource(this.elementData)
       this.isLoading = false;
@@ -33,7 +33,7 @@ export class ReposComponent {
   }
 
   public goToCommit(e: any) {
-    this.s.goToRepo(e.owner.login, e.name).subscribe(item => {
+    this.searchService.goToRepo(e.owner.login, e.name).subscribe(item => {
       this.router.navigate([`commits/${item.owner.login}/${item.name}`])
     }
     )

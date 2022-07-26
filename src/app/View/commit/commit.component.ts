@@ -22,17 +22,17 @@ export class CommitComponent implements OnInit {
   displayedColumns: string[] = ['author', 'url', 'message'];
   dataSource: any;
 
-  constructor(private activatedRoute: ActivatedRoute, private s: SearchService) { }
+  constructor(private activatedRoute: ActivatedRoute, private searchService: SearchService) { }
 
   ngOnInit(): void {
     this.author = this.activatedRoute.snapshot.params['author'];
     this.repoName = this.activatedRoute.snapshot.params['repository'];
-    this.s.goToRepo(this.author, this.repoName).subscribe(item => this.repository = item)
+    this.searchService.goToRepo(this.author, this.repoName).subscribe(item => this.repository = item)
   }
 
   searchForCommits() {
     this.isLoading = true;
-    this.s.searchCommits(this.author, this.repoName).subscribe((item: any) => {
+    this.searchService.searchCommits(this.author, this.repoName).subscribe((item: any) => {
       item.forEach((items: any) => this.commits.push(items.commit))
       this.dataSource = new MatTableDataSource(this.commits)
       this.isLoading = false;
