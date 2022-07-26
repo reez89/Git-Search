@@ -10,7 +10,7 @@ import { SearchService } from '../../services/search.service';
 @Component({
   selector: 'app-commit',
   templateUrl: './commit.component.html',
-  styleUrls: ['./commit.component.scss'],
+  styleUrls: ['./commit.component.scss']
 })
 export class CommitComponent implements OnInit {
 
