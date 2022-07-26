@@ -14,18 +14,15 @@ import { Item, ReposInterface } from '../../Interfaces/repos-response.interface'
 export class ReposComponent {
 
   elementData: Item[] = [];
-  searchValue: string = '';
-  starsValue?: number;
-  language?: string;
   dataSource: any;
   isLoading: boolean = false;
 
 
   constructor(public searchService: SearchService, private router: Router) {}
 
-  public searchRepos() {
+  public searchRepos(e : any) {
     this.isLoading = true;
-    this.searchService.getRepos(this.searchValue, this.starsValue, this.language).subscribe((item: ReposInterface) => {
+    this.searchService.getRepos(e.repo, e.stars, e.language).subscribe((item: ReposInterface) => {
       this.elementData = item.items;
       this.dataSource = new MatTableDataSource(this.elementData)
       this.isLoading = false;

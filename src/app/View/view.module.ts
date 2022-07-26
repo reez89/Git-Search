@@ -19,8 +19,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { HomeComponent } from './home/home.component';
 import { SearchService } from '../services/search.service';
 import { HttpClientModule } from '@angular/common/http';
+import { SearchBoxComponent } from '../Components/search-box/search-box.component';
 
-const components = [WrapperComponent, TableComponent, ReposComponent, CommitComponent, HomeComponent]
+
+const components = [WrapperComponent, TableComponent, ReposComponent, CommitComponent, HomeComponent, SearchBoxComponent]
 
 @NgModule({
   declarations: [...components],

@@ -1,0 +1,15 @@
+<div class="search-box">
+    <mat-form-field appearance="fill">
+        <mat-label>Repo's Name</mat-label>
+        <input matInput type="text" placeholder="Octopress" [(ngModel)]="searchValue" value="{{searchValue}}">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Stars</mat-label>
+        <input matInput type="number" placeholder="5" [(ngModel)]="starsValue" value="{{starsValue}}">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Language</mat-label>
+        <input matInput type="text" placeholder="Javascript" value="{{language}}" [(ngModel)]="language" >
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="search(searchValue,starsValue,language)">Search</button>
+</div>

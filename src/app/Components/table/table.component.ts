@@ -1,16 +1,18 @@
-import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.scss']
+  styleUrls: ['./table.component.scss'],
+  changeDetection : ChangeDetectionStrategy.OnPush
 })
 export class TableComponent implements OnInit {
 
-  constructor() { }
+  constructor( private changeDetector: ChangeDetectorRef) { }
 
   ngOnInit(): void {
+    // 
   }
 
   displayedColumns: string[] = ['stargazers_count', 'name', 'created_at', 'avatar_url'];

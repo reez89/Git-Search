@@ -1,6 +1,6 @@
 
 <app-wrapper>
-    <mat-card class="card">
+    <mat-card class="card" *ngIf="repository">
         <mat-card-header>
             <div mat-card-avatar class="owner-avatar">
                 <img src="{{repository.owner.avatar_url}}" alt="Photo of the owner">

@@ -1,18 +1,5 @@
 <app-wrapper>
-    <div class="search-box">
-        <mat-form-field appearance="fill">
-            <mat-label>Repo's Name</mat-label>
-            <input matInput type="text" placeholder="Octopress" [(ngModel)]="searchValue" value="{{searchValue}}">
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-label>Stars</mat-label>
-            <input matInput type="number" placeholder="5" [(ngModel)]="starsValue" value="{{starsValue}">
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-label>Language</mat-label>
-            <input matInput type="text" placeholder="Javascript" [(ngModel)]="language" value="{{language}}">
-        </mat-form-field>
-        <button mat-raised-button color="primary" (click)="searchRepos()">Search</button>
-    </div>
+    <app-search-box 
+        (searchForRepos)="searchRepos($event)"></app-search-box>
 </app-wrapper>
 <app-table [isLoading]="isLoading" [dataSource]="dataSource" (repoEvent)="goToCommit($event)"></app-table>
