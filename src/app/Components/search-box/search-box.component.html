@@ -9,7 +9,7 @@
     </mat-form-field>
     <mat-form-field appearance="fill">
         <mat-label>Language</mat-label>
-        <input matInput type="text" placeholder="Javascript" value="{{language}}" [(ngModel)]="language" >
+        <input matInput type="text" placeholder="Javascript" [(ngModel)]="language" value="{{language}}" >
     </mat-form-field>
     <button mat-raised-button color="primary" (click)="search(searchValue,starsValue,language)">Search</button>
 </div>

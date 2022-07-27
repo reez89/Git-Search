@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { SearchingValues } from 'src/app/Interfaces/searching-values.interface';
 
 @Component({
   selector: 'app-search-box',
@@ -15,7 +16,7 @@ export class SearchBoxComponent implements OnInit {
   language?: string;
 
   @Output() 
-  searchForRepos: EventEmitter<any> = new EventEmitter<any>();
+  searchForRepos: EventEmitter<SearchingValues> = new EventEmitter<SearchingValues>();
 
   constructor() { }
 
@@ -23,7 +24,7 @@ export class SearchBoxComponent implements OnInit {
   }
 
   search(repo : string, stars? : number, language? : string): any{
-    let searchValues = {
+    let searchValues: SearchingValues = {
       repo : repo,
       stars : stars,
       language : language
